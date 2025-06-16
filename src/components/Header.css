@@ -1,0 +1,199 @@
+/* src/components/Header.css */
+
+/* --- Main Header Container --- */
+.site-header {
+  position: fixed;
+  top: 5px;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+  padding: 10px 0;
+  display: flex;
+  justify-content: center;
+  transition: all 0.3s ease-in-out;
+}
+
+/* --- The Visual "Pill" --- */
+.header-pill {
+  padding: 0; 
+  background-color: hsla(0, 0%, 80%, .3);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-radius: 16px;
+  transition: background-color 0.3s ease;
+  width:100%;
+}
+
+/* --- Style Change on Scroll --- */
+.site-header.scrolled .header-pill {
+background-color: hsla(0, 0%, 80%, .3);
+}
+
+.site-header.scrolled .header_navLink a {
+  color: #000;
+}
+
+.site-header.scrolled .hamburger-button span {
+  background-color: #333;
+}
+
+
+/* --- Inner Layout: THIS IS THE TARGET ELEMENT --- */
+.header_logo {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100vw;
+    height: 7vh;
+    padding: 10px;
+}
+.header_navLink{
+    font-size: 18px;
+    color: #000;
+    display: flex;
+    width: 50%;
+    justify-content: flex-end;
+    gap: 34px;
+    padding: 10px;
+    font-weight: 400;
+    
+}
+/* Container for the logo SVG and hamburger */
+.logo {
+  display: flex;
+  align-items: center;
+}
+
+/* --- Resetting Default Styles --- */
+.logo a,
+.logo button {
+  background: none;
+  border: none;
+  padding: 0;
+  margin: 0;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+}
+.header_navLink{
+  font-weight: 550;
+    font-size: 2rem;
+    line-height: 20px;
+    color: #000;
+    transition: all .1s ease-in-out;
+    padding: 7px 13px;
+    display: inline-block;
+    border-radius: 10px;
+    background: none;
+    border: none;
+    outline: none;
+  display: flex;}
+
+/* --- Desktop Navigation --- */
+/* .header_navLink ul { */
+.header_navLink {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+/* .header_navLink a {
+  text-decoration: none;
+  font-size: 1rem;
+  font-weight: 500;
+  color: #fff;
+  transition: color 0.3s ease;
+} */
+
+/* .header_navLink a:hover {
+  color: #f94f00;
+} */
+
+/* .header_navLink button {
+  background: none;
+  border: none;
+  padding: 0;
+  font-family: inherit;
+  font-size: inherit;
+  font-weight: inherit;
+  color: inherit;
+  cursor: pointer;
+} */
+
+/* .header_navLink .mobile {
+  display: none;
+} */
+
+
+/* --- Hamburger Menu Button --- */
+.hamburger-button {
+  display: none;
+  width: 24px;
+  height: 20px;
+  flex-direction: column;
+  justify-content: space-between;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  margin-left: 20px;
+}
+
+.hamburger-button span {
+  display: block;
+  width: 100%;
+  height: 2px;
+  background-color: #fff;
+  border-radius: 2px;
+  transition: all 0.3s ease-in-out;
+}
+
+.hamburger-button.open span:nth-child(1) {
+  transform: translateY(9px) rotate(45deg);
+}
+.hamburger-button.open span:nth-child(2) {
+  opacity: 0;
+}
+.hamburger-button.open span:nth-child(3) {
+  transform: translateY(-9px) rotate(-45deg);
+}
+
+
+/* ======================================= */
+/* --- RESPONSIVE STYLES FOR MOBILE --- */
+/* ======================================= */
+@media (max-width: 768px) {
+  .header_navLink {
+    display: none;
+  }
+
+  .hamburger-button {
+    display: flex;
+  }
+  .site-header {
+    /* padding: 0 15px;
+    top: 10px; */
+            transition: all .3s ease-in-out;
+        background: hsla(0, 0%, 80%, .3);
+        -webkit-backdrop-filter: saturate(180%) blur(10px);
+        backdrop-filter: saturate(180%) blur(10px);
+  }
+  .site-header .header-pill{
+    padding: 0;;
+  }
+
+  /* On mobile, use padding on the pill and remove fixed height */
+  .header_pill {
+    padding: 6px 8px;
+  }
+  
+  .header_logo {
+    width: auto;
+    height: auto;
+    padding: 0; /* Remove padding on the inner container for mobile */
+    justify-content: flex-start;
+  }
+}
