@@ -50,8 +50,9 @@ justify-content: flex-start;
 }
 .expertise-card-header {
   display: flex;
-  align-items: baseline;
+  align-items: center;
   gap:10px;
+  justify-content: space-between;
 }
 /* --- Styles for the NEW Grid Header --- */
 .expertise-grid-header {
