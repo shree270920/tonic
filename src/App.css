@@ -33,10 +33,18 @@ html {
 /* *,
 *:before,
 *:after  */
-*
+/* *
 {
   box-sizing: border-box;
   margin: 0;
+  padding: 0;
+  letter-spacing: .005em;
+} */
+ *,
+*::before,
+*::after {
+  box-sizing: border-box;
+   margin: 0;
   padding: 0;
   letter-spacing: .005em;
 }
@@ -51,8 +59,8 @@ html {
 
 /* --- HEADER STYLES --- */
 .site-header {
-  position: fixed;
-  top: 0;
+  /* position: fixed; */
+  top: 5px;
   width:100%;
   z-index: 1000;
   animation: header_fallDown_zmLbS 0.5s ease-in-out;
@@ -376,17 +384,25 @@ project-category:hover{
 }
 /* For mobile phones */
 @media (max-width: 768px) {
+  .service-card p {
+    font-size: 15px;
+}
   .services-section {
-    padding: 80px 20px;
+    /* padding: 80px 20px; */
+            padding: 48px 0 82px;
   }
   .services-header {
-    margin-bottom: 60px;
+    /* margin-bottom: 60px; */
+    padding-bottom: 48px;
   }
   .section-super-title {
-    font-size: 1.8rem;
+    /* font-size: 1.8rem; */
+    font-size: 3.4rem;
+        line-height: 134%;
   }
   .section-intro-paragraph {
-    font-size: 1rem;
+    font-size: 2rem;
+    padding:5px 0;
   }
   .services-grid {
     grid-template-columns: 1fr; /* 1 column */
@@ -450,14 +466,8 @@ project-category:hover{
 
 /* --- FOOTER SECTION --- */
 .footer-section {
-  /* background-color: #edecea;
-  padding: 20px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 100px; */
-  background: rgb(237, 236, 234);
-    padding: 40px 0 32px;
+  background: rgb(237, 236, 234);    
+    padding: 30px;
     text-decoration: none;
 }
 
@@ -471,7 +481,7 @@ project-category:hover{
   font-weight: 500;
   margin: 0 0 30px 0; */
   font-size: 35px;
-    font-weight: 500;
+    font-weight: 550;
     /* margin: 0 0 30px 0; */
     padding: 18px;
 
@@ -537,7 +547,8 @@ project-category:hover{
 }
 
 .footer-email:hover {
-  color: #f94f00;
+  /* color: #f94f00; */
+  text-decoration: underline;
 }
 
 .social-links {
@@ -764,7 +775,7 @@ img{
   }
 
   .mission-content p {
-    font-size: 1.5rem;
+    font-size: 23px;
   }
 
   /* --- Header --- */
@@ -799,13 +810,27 @@ img{
 
   .expertise-content-grid {
     grid-template-columns: 1fr;
+    display: flex;
     /* 1 column for mobile */
   }
 
   /* --- Services Section --- */
+  
+  .container {
+        padding: 0 8px;
+  }
+   
   .services-grid {
-    grid-template-columns: 1fr;
-    /* 1 column for mobile */
+        grid-template-columns: 1fr;
+        flex-basis: 100%;
+        gap: 48px 10px;
+    }
+  .service-card{
+    padding: 0 12px 0 0;
+  }
+  .service-tile{
+    font-size: 2.4rem;
+        line-height: 140%;
   }
 
   .service-card .service-image-container {
@@ -814,18 +839,20 @@ img{
 
   /* --- Mission Section --- */
   .mission-section {
-    padding: 80px 20px;
+           padding: 0 8px;
+    
   }
 
   .mission-image-container {
-    margin-top: 50px;
-  }
+    margin-top: 0px;
+    max-width: 100%;}
 
   /* --- Footer Section --- */
   .footer-section {
     /* padding: 100px 20px 40px;
     gap: 80px; */
-    background: rgb(237, 236, 234);
+    /* background: rgb(237, 236, 234); */
+    background-color: #edecea;
     padding: 40px 0 32px;
   }
 
@@ -928,6 +955,7 @@ img{
 }
 
 
+
 /* ================================================ */
 /* --- UPDATE RESPONSIVE MEDIA QUERIES --- */
 /* ================================================ */
@@ -937,9 +965,88 @@ img{
   /* No changes needed here, the 768px breakpoint is enough for the header */
 }
 
+.footer-section {
+  background-color: #edecea;
+  padding: 4rem 1rem;
+  color: #a09d9a;
+}
+.enquiry-title{
+  margin-left: 55px !important;
+}
+.footer-content {
+  display: flex;
+  flex-direction: row; /* Horizontal layout by default */
+  justify-content: space-between;
+  align-items: flex-start;
+  
+  margin: 0 auto;
+}
+
+.footer-block {
+  flex: 1; /* Make each block take up equal space */
+}
+
+/* Align content within the blocks for desktop */
+.enquiries-block { text-align: left; }
+.connect-block { text-align: center; }
+.newsletter-block { text-align: right; }
+
+/* Align form and icons to match their container's alignment */
+.newsletter-form { margin-left: auto; }
+.social-links { justify-content: center; }
+
+
+/* --- Shared Styles for Block Content --- */
+.footer-title {
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.15em;
+  margin: 0 0 1rem 0;
+  text-transform: uppercase;
+}
+
+.footer-email {
+ font-size: 35px;
+    color: #939598;
+    text-decoration: none;
+    font-weight: 550;
+}
+
+.newsletter-form {
+  display: flex;
+  align-items: center;
+  background-color: #fff;
+  border: 1px solid #e0e0e0;
+  border-radius: 50px;
+  padding: 0.5rem 0.5rem 0.5rem 1.25rem;
+  width: 100%;
+  max-width: 320px;
+}
+.newsletter-form input {
+  flex-grow: 1; border: none; outline: none; background: transparent;
+  font-size: 1rem; color: #888;
+}
+.newsletter-form input::placeholder { color: #ccc; opacity: 1; }
+.newsletter-form button {
+  display: flex; align-items: center; gap: 0.5rem; background: transparent;
+  border: none; cursor: pointer; color: #a09d9a; font-size: 0.8rem;
+  font-weight: 600; letter-spacing: 0.1em; padding: 0.5rem;
+}
+.newsletter-form button img { width: 18px; height: auto; }
+
+.social-links { display: flex; gap: 1.5rem; }
+.social-links a { 
+  font-family: sans-serif; font-weight: bold; font-size: 1.5rem; 
+  color: #a09d9a; text-decoration: none;
+}
+.social-links a:hover { color: #333; }
+
 /* --- Mobile View --- */
 @media (max-width: 768px) {
   /* --- Header Adjustments for Mobile --- */
+  body,html{
+    width: 100%;
+  }
   .site-header .header-pill {
     width: calc(100% - 40px); /* Make pill take up more width */
     justify-content: space-between; /* Pushes logo left, hamburger right */
@@ -950,10 +1057,67 @@ img{
   }
 
   .site-header .logo {
-    margin-right: 0; /* Remove margin from logo */
+   width: 100%;
+     
+        display: flex
+;
+        justify-content: space-between;
   }
   
   .hamburger-button {
     display: flex; /* Show the hamburger button */
   }
+  .service-card .service-image-container{
+    display: inline;
+  }
+.footer-cta {
+    text-align: center;
+    padding: 40px 0 50px;
+}
+  .footer-content {
+    /* Switch to a vertical, centered layout */
+    flex-direction: column;
+    align-items: center;
+    gap: 3rem;
+  }
+  .footer_footerContent{
+     flex-direction: column;
+    align-items: center;
+    gap: 3rem;
+  }
+
+  /* --- Re-ordering the blocks for mobile --- */
+  .enquiries-block { order: 1; }
+  .newsletter-block{ order: 2; } /* MOVES to the middle */
+  .connect-block   { order: 3; } /* MOVES to the bottom */
+
+  /* --- Reset block alignment for mobile --- */
+  .footer-block,
+  .enquiries-block,
+  .connect-block,
+  .newsletter-block {
+            text-align: center;
+        /* flex: none; */
+        display: flex
+;
+        width: 100%;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+
+  /* Reset alignment of form and icons */
+  .newsletter-form { margin: 0 auto; }
+  .social-links { justify-content: center; }
+  
+  .footer-title{
+    font-size: 1.19rem;
+        padding-bottom: 4px;
+        max-width: 100% !important;
+  }
+.footer-block a{
+  font-size:2.8rem;
+  color: #939598;
+  font-weight: 550;;
+}
 }

@@ -3,7 +3,9 @@
 // --- ASSET IMPORTS ---
 import defaultBg from '../assets/videos/atherApex.mp4';
 import kiaImage from '../assets/images/Kia_Seltos_Tonic_Desktop_01.avif';
+import kiaMobileImage from '../assets/images/Kia_Tonic_Seltos_Mobile_01.avif';
 import bmwImage from '../assets/images/BMW_X5_Desktop.avif';
+import bmwMobileImage from '../assets/images/BMW_X5_Mobile.avif';
 import naturalsImage from '../assets/images/Creambell.webp';
 import shazeVideo from '../assets/videos/shaze.mp4';
 
@@ -14,12 +16,13 @@ import vrImage from '../assets/images/VR-thumb_900px.avif';
 import digital from '../assets/images/install_thumb_900px.avif';
 import Interative from '../assets/images/retail.avif';
 
+
 // --- DATA EXPORTS ---
 export const projectData = [
   { id: 1, category: 'Automotive CGI', title: 'Ather 450 Apex', type: 'video', asset: defaultBg },
-  { id: 2, category: 'Automotive CGI', title: 'KIA Seltos', type: 'image', asset: kiaImage },
-  { id: 3, category: 'Automotive CGI', title: 'BMW X5', type: 'image', asset: bmwImage },
-  { id: 4, category: 'F&B CGI', title: 'Naturals Now', type: 'image', asset: naturalsImage },
+  { id: 2, category: 'Automotive CGI', title: 'KIA Seltos', type: 'image', asset: kiaImage, mobileAsset: kiaMobileImage },
+  { id: 3, category: 'Automotive CGI', title: 'BMW X5', type: 'image', asset: bmwImage , mobileAsset: bmwMobileImage },
+  { id: 4, category: 'F&B CGI', title: 'Naturals Now', type: 'image', asset: naturalsImage, mobileAsset: naturalsImage },
   { id: 5, category: 'CGI & VFX', title: 'Shaze', type: 'video', asset: shazeVideo },
 ];
 

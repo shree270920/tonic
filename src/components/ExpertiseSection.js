@@ -13,51 +13,46 @@ const ExpertiseSection = () => {
 
   return (
     <section className="expertise-section">
-      {/* Intro text - no changes needed */}
-      <div className="expertise-intro">
-        <h2 className="text-orange">Our expertise</h2>
-        <p>
-          At tonic, we create digital experiences for all sorts of products and brands, but do admit we have a not-so-secret passion for projects involving automobiles, food & drink.
-        </p>
-      </div>
-
-      {/* --- THIS IS THE UPDATED HEADER STRUCTURE --- */}
-      <div className="expertise-grid-header">
-        {/* Left Group: Title + Link */}
-        <div className="header-group-left">
-          <h3 className="expertise-category-title">Automotive</h3>
-          <a href="#automotive" className="read-more-link">Read more</a>
-        </div>
-
-        {/* Right Group: Title only */}
-        <div className="header-group-right">
-          <h3 className="expertise-category-title">Food & Drink</h3>
-        </div>
-      </div>
-      {/* --- END OF UPDATED HEADER --- */}
-
-      {/* Content grid - no changes needed */}
-      <div className="expertise-content-grid">
-        <div className="expertise-column">
-          <div
-            className="image-container"
-            onMouseEnter={() => setCurrentAutomotiveMedia(hoverAutomotiveState)}
-            onMouseLeave={() => setCurrentAutomotiveMedia(defaultAutomotiveState)}
-          >
-            {currentAutomotiveMedia.type === 'video' ? (
-              <video key={currentAutomotiveMedia.asset} autoPlay loop muted playsInline>
-                <source src={currentAutomotiveMedia.asset} type="video/mp4" />
-              </video>
-            ) : (
-              <img src={currentAutomotiveMedia.asset} alt="Automotive project interior" />
-            )}
-          </div>
-          {/* <ul className="service-list">
-            {automotiveServices.map(service => <li key={service}>{service} •</li>)}
-          </ul> */}
-          <div className="service-list">
-          <ul >
-            {automotiveServices.map((service, index) => (
+      <div className='container'>
+        <div className="expertise-intro">
+          <h2 className="text-orange">Our expertise</h2>
+          <p>
+            At tonic, we create digital experiences for all sorts of products and brands, but do admit we have a not-so-secret passion for projects involving automobiles, food & drink.
+          </p>
+        </div> 
+      
+        {/*
+          The old shared header is removed.
+          The layout is now a grid of self-contained cards.
+        */}
+        <div className="expertise-content-grid">
+          {/* --- AUTOMOTIVE CARD --- */}
+          <div className="expertise-column">
+            {/* Header for this specific card */}
+            <div className="expertise-card-header">
+              <h3 className="expertise-category-title">Automotive</h3>
+              <a href="#automotive" className="read-more-link">Read more</a>
+            </div>
+            
+            <div
+              className="image-container"
+              onMouseEnter={() => setCurrentAutomotiveMedia(hoverAutomotiveState)}
+              onMouseLeave={() => setCurrentAutomotiveMedia(defaultAutomotiveState)}
+            >
+              {currentAutomotiveMedia.type === 'video' ? (
+                <video key={currentAutomotiveMedia.asset} autoPlay loop muted playsInline>
+                  <source src={currentAutomotiveMedia.asset} type="video/mp4" />
+                </video>
+              ) : (
+                <img src={currentAutomotiveMedia.asset} alt="Automotive project interior" />
+              )}
+            </div>
+            
+            <div className="service-list">
+              <ul>
+                {/* The dot will be added with CSS for better control */}
+                {/* {automotiveServices.map(service => <li key={service}>{service}</li>)} */}
+                {automotiveServices.map((service, index) => (
               <li key={index}>
                 
                 {Array.isArray(service)
@@ -67,20 +62,29 @@ const ExpertiseSection = () => {
                  •
               </li>
             ))}
-          </ul>
+              </ul>
+            </div>
           </div>
-        </div>
 
-        <div className="expertise-column">
-          <div className="image-container">
-            <img src={foodDrinkImage} alt="Food and Drink project" />
-          </div>
-          <div  className="service-list">
-          <ul>
-            {foodServices.map(service => <li key={service}>{service} •</li>)}
-          </ul>
+          {/* --- FOOD & DRINK CARD --- */}
+          <div className="expertise-column">
+            {/* Header for this specific card */}
+            <div className="expertise-card-header">
+              <h3 className="expertise-category-title">Food & Drink</h3>
+            </div>
+            
+            <div className="image-container">
+              <img src={foodDrinkImage} alt="Food and Drink project" />
+            </div>
+            
+            <div  className="service-list">
+              <ul>
+                {foodServices.map(service => <li key={service}>{service} •</li>)}
+              </ul>
+            </div>
           </div>
         </div>
+      
       </div>
     </section>
   );

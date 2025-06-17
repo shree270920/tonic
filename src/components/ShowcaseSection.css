@@ -1,204 +1,171 @@
-/* src/components/ShowcaseSection.css */
-
-/* Main section container with the base font family */
+/* =================================== */
+/* --- DESKTOP STYLES (UNCHANGED) --- */
+/* =================================== */
 .showcase-section {
   position: relative;
   width: 100%;
   height: 100vh;
   overflow: hidden;
   background-color: #000;
-  font-family: Greed ;
+  font-family: Greed;
 }
 
-/* --- BACKGROUND STYLES --- */
 .background-stack {
   position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
+  top: 0; left: 0; width: 100%; height: 100%;
   z-index: 1;
 }
 .media-layer {
-  
   position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
+  top: 0; left: 0; width: 100%; height: 100%;
   opacity: 0;
   transition: opacity 0.8s ease-in-out;
 }
 .media-layer.active {
   opacity: 1;
-  width:100%;
   transform: scale(1.02, 1.02);
 }
-
-.media-layer img {
-  width: 100%;
-  height: 100%;
+.media-layer img, .media-layer video {
+  width: 100%; height: 100%;
   object-fit: cover;
 }
- .shaze-video{
-   /* background-color: white; */
-    transform: scale(1.02, 1.02) !important;
-    object-fit: contain !important;
-  /* border:10px solid orange; */
-}
-.media-layer video{
-  width:100%;
-  height: 100%;
-  display: block;
-  object-fit: cover;
+.media-layer video {
   transform: scale(0.75, 0.75);
-  /* border:10px solid orange; */
+}
+.shaze-video {
+  transform: scale(1.02, 1.02) !important;
+  object-fit: contain !important;
 }
 
-/* --- CONTENT STYLES  --- */
 .content-overlay {
   position: relative;
   z-index: 10;
-  height: 100%;
+  width: 100%; height: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
   color: #fff;
 }
-
 .projects-list {
-  /* display: flex;
+  position: absolute;
+  top: 50%; left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  display: flex;
   justify-content: space-between;
-  width: 90%;
-   */
-   position: absolute;
-    bottom: 52%;
-    transform: translateY(50%);
-    width: 100%;
-    left: 0;
-    display: flex;
-    justify-content: space-between;
-    padding: 0 40px;
-    margin: auto;
-  
+  padding: 0 40px;
 }
-
 .project-item {
-  
   cursor: pointer;
   text-align: left;
-  transition: color 0.3s ease;
   padding: 160px 20px;
-  opacity:0.6;
+  opacity: 0.6;
+  transition: all .2s ease-in-out;
 }
-/* .project-item:hover{
-  color:white;
-} */
-
-/* Styles for "Automotive CGI" */
+.project-item:hover {
+  opacity: 1;
+}
 .project-category {
-  color: #fff; 
+  color: #fff;
   font-size: 11px;
-  font-weight: 400; 
+  font-weight: 400;
   line-height: 1.2;
-  margin: 0 0 5px 0; 
+  margin: 0 0 5px 0;
 }
-/* .project-category :hover{
-  color: white;
-} */
-
-/* h2{
-    display: bold;
-    font-size:1.5rem;;
-} */
-/* Styles for "Ather 450 Apex" */
 .project-title {
-   color: #fff;
+  color: #fff;
   font-size: 24px;
   font-weight: 500;
   line-height: 1.2;
   margin: 0;
 }
-
-/* --- NEW STYLES FOR "View Project" LINK --- */
-.project-view-link {
-  display: block; 
-  margin-top: 1.25rem; 
-  color: #f36f21; 
-  font-size: 1.1rem;
-  font-weight: 500; 
-  text-decoration: none; 
-  transition: color 0.3s ease;
-}
-
-.project-view-link:hover {
-  color: #f36f21;
-}
-
 .project-view-link {
   display: block;
   margin-top: 15px;
-  color:#f36f21;
+  color: #f36f21;
   font-size: 15px;
   font-weight: 500;
   text-decoration: none;
   opacity: 0;
   transform: translateY(10px);
-  pointer-events: none; 
+  pointer-events: none;
   transition: opacity 0.4s ease, transform 0.4s ease;
 }
-
-/* --- ADD THIS NEW RULE --- */
-/* This rule targets the link ONLY when its parent .project-item is hovered */
 .project-item:hover .project-view-link {
   opacity: 1;
   transform: translateY(0);
-  pointer-events: auto; /* Make it clickable again */
+  pointer-events: auto;
 }
 
-/* Optional: Keep the hover effect on the link itself */
-.project-view-link:hover {
-  color:  #f36f21;
-}
-
- .project-item:hover{
-  padding: 160px 20px;
-    opacity: 1;
-    transition: all .2s ease-in-out;
-}
-
-/* ======================================= */
-/* --- RESPONSIVE STYLES FOR MOBILE --- */
-/* ======================================= */
-@media (max-width: 768px) {
-  .content-overlay {
-    align-items: center; /* Center content vertically */
-    justify-content: center;
-    padding: 20px;
-  }
-
-  .projects-list {
-    flex-direction: column; /* Stack projects vertically */
-    align-items: center; /* Center them */
-    justify-content: center;
-    gap: 2rem;
+/* =================================== */
+/* --- MOBILE STYLES --- */
+/* =================================== */
+@media(max-width: 768px) {
+  /* This is the main container for the mobile slider view */
+  .mobile-view-overlay {
     width: 100%;
+    height: 100%;
+  }
+  .showcase-section{
+    height: 95vh;;
   }
 
-  .project-item {
-    text-align: center; /* Center text inside each item */
-    padding: 0;
-    opacity: 1; /* Make all items fully visible on mobile */
+  /* Style the slider to fill the container */
+  .mobile-view-overlay .slick-slider,
+  .mobile-view-overlay .slick-list,
+  .mobile-view-overlay .slick-track,
+  .mobile-view-overlay .slick-slide > div {
+    height: 100%;
   }
 
-  .project-title {
-    font-size: 1.5rem;
-  }
-
-  /* Make view link always visible on mobile for default project */
-  .project-item .project-view-link {
+  /* The media inside the slider should cover the area */
+  .mobile-view-overlay .media-layer.active {
     opacity: 1;
-    transform: translateY(0);
+    transform: none; /* Reset desktop scale */
+  }
+  .mobile-view-overlay .media-layer.active video,
+  .mobile-view-overlay .media-layer.active img {
+    transform: none; /* Reset desktop scale */
+  }
+
+  /* Static text overlay at the bottom */
+  .slide-text-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    z-index: 20;
+    padding: 2rem 1.5rem 4rem 1.5rem; /* Extra bottom padding for space */
+    text-align: left;
+    color: #fff;
+    /* Gradient for text legibility */
+    background: linear-gradient(0deg, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0) 100%);
+  }
+  
+  /* Style for the "View Project" button on mobile */
+  .project-view-link.mobile {
+    display: inline-block; /* Make it a button */
+    background-color: #f36f21;
+    color: #fff;
+    padding: 0.6rem 1.2rem;
+    border-radius: 30px;
+    font-size: 0.9rem;
+    margin-top: 1rem;
+    opacity: 1; /* Make it visible */
+    transform: none;
     pointer-events: auto;
+  }
+  
+  /* Styling for the slider dots */
+  .slick-dots {
+    bottom: 25px; /* Position dots just above the bottom edge */
+  }
+  .slick-dots li button:before {
+    color: white;
+    font-size: 10px;
+    opacity: 0.5;
+  }
+  .slick-dots li.slick-active button:before {
+    opacity: 1;
   }
 }

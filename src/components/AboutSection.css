@@ -67,14 +67,28 @@
 } */
 
 
-/* @media (max-width: 768px) {
-  .about-content {
-    padding: 80px 20px;
-    margin:auto
+ @media (max-width: 768px) {
+  .about-section{
+    padding: 48px 0 80px;
   }
+  .about-intro{
+    padding: 0 8px;
+  }
+  /* .about-content { */
+    /* padding: 80px 20px; */
+    /* margin:auto */
+  /* } */
+  .about-content h2{
+    font-size: 15px;
+    font-weight: 400;
+        padding-bottom: 12px;
+    }
+  
 
   .about-content .section-paragraph {
     /* font-size: 1.5rem; */
-    /* font-size: 3.5rem;
+     /* font-size: 3.5rem; */
+     font-size: 2.8rem;
+        line-height: 110%;
   }
-} */ 
+} 

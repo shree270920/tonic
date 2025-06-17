@@ -46,6 +46,7 @@ background-color: hsla(0, 0%, 80%, .3);
     width: 100vw;
     height: 7vh;
     padding: 10px;
+
 }
 .header_navLink{
     font-size: 18px;
@@ -177,23 +178,28 @@ background-color: hsla(0, 0%, 80%, .3);
     /* padding: 0 15px;
     top: 10px; */
             transition: all .3s ease-in-out;
-        background: hsla(0, 0%, 80%, .3);
+       
         -webkit-backdrop-filter: saturate(180%) blur(10px);
         backdrop-filter: saturate(180%) blur(10px);
+        padding:0px;
+        top:0px;
   }
   .site-header .header-pill{
-    padding: 0;;
+    padding: 15px;
+    /* background-color: transparent; */
+    /* border:1px solid red; */
+    border-radius: 0px;
+    width:100%;
   }
 
   /* On mobile, use padding on the pill and remove fixed height */
-  .header_pill {
-    padding: 6px 8px;
-  }
+  
   
   .header_logo {
-    width: auto;
+     
     height: auto;
     padding: 0; /* Remove padding on the inner container for mobile */
     justify-content: flex-start;
+    width: 100%;;
   }
 }

@@ -8,6 +8,7 @@ import { servicesData } from '../data/projectData';
 const ServicesSection = () => {
   return (
     <section className="services-section">
+      <div className='container'>
       <div className="services-header">
         <h2 className="section-super-title text-orange">Our Services</h2>
         <p className="section-intro-paragraph">
@@ -31,6 +32,7 @@ const ServicesSection = () => {
           </div>
           </div>
         ))}
+      </div>
       </div>
     </section>
   );
