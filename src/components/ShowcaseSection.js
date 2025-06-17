@@ -47,7 +47,7 @@ const ShowcaseSection = () => {
         key={project.id}
         src={project.asset}
         autoPlay loop muted playsInline preload="auto"
-        className={project.id === 'shaze' ? 'shaze-video' : ''}
+        className={project.id === 5 ? 'shaze-video' : ''}
       />
     ) : (
       <img  src={project.asset} alt={project.title} loading="eager" />
