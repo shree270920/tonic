@@ -44,8 +44,8 @@ background-color: hsla(0, 0%, 80%, .3);
     align-items: center;
     justify-content: space-between;
     width: 100vw;
-    height: 7vh;
-    padding: 10px;
+    /* height: 7vh; */
+    padding: 16px 10px;
 
 }
 .header_navLink{
